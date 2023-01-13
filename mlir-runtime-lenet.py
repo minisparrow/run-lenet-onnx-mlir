@@ -2,11 +2,11 @@ import numpy as np
 import cv2
 
 import time
-from PyRuntime import ExecutionSession
+from PyRuntime import OMExecutionSession
 
 
-model = './liblenet.so'
-session = ExecutionSession(model, "run_main_graph")
+model = './so-lib/lenet.so'
+session = OMExecutionSession(model, use_default_entry_point=True)
 
 img = cv2.imread('mnist_0.png')
 

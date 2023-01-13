@@ -16,7 +16,6 @@ func private @matmulKrnl_full_tiles(%A: memref<4x6xf32>, %B: memref<6x8xf32>, %C
     %kb, %kl = krnl.block %kk 6 : (!krnl.loop) -> (!krnl.loop, !krnl.loop)
     krnl.permute(%ib, %il, %jb, %jl, %kb, %kl) [0, 3, 1, 4, 2, 5] : !krnl.loop, !krnl.loop, !krnl.loop, !krnl.loop, !krnl.loop, !krnl.loop
     krnl.iterate(%ib, %jb, %kb) with (%ii -> %i = 0 to 4, %jj -> %j = 0 to 8, %kk -> %k = 0 to 6) {
-        //%iii, %jjj, %kkk = krnl.get_induction_var_value(%ib, %jb, %kb) : (!krnl.loop, !krnl.loop, !krnl.loop) -> (index, index, index)
         krnl.matmul %A [%c0, %c0], %B[%c0, %c0], %C[%c0, %c0], (%il, %jl, %kl), (%c0, %c0, %c0), (%c4, %c8, %c6) 
             {unroll=false, simdize=true} : 
             memref<4x6xf32>, memref<6x8xf32>, memref<4x8xf32>, (!krnl.loop, !krnl.loop, !krnl.loop)

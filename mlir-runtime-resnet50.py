@@ -2,11 +2,11 @@ import numpy as np
 import cv2
 import time
 
-from PyRuntime import ExecutionSession
+from PyRuntime import OMExecutionSession
 
 
-model = './resnet50v1.so'
-session = ExecutionSession(model, "run_main_graph")
+model = './so-lib/resnet50v1.so'
+session = OMExecutionSession(model, use_default_entry_point=True)
 
 img = cv2.imread('kitten.jpg')
 img.resize(3,224,224)

@@ -1,1 +1,1 @@
-../onnx-mlir/build/Debug/lib/PyRuntime.cpython-38-x86_64-linux-gnu.so
+/root/compiler_workspace/onnx-dlc/onnx-mlij/build-onnx-mlir/Debug/lib/PyRuntime.cpython-38-x86_64-linux-gnu.so
