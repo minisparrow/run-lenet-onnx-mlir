@@ -14,6 +14,8 @@ lenet.onnx
 $ <onnx-mlir> lenet.onnx --EmitLib -o liblenet
 ```
 
+python3 RunONNXModel.py --model onnx-model/lenet.onnx  --save-so ./so-lib/lenet.so
+
 ## 3. 安装Python依赖库并运行runtime跑推理
 
 pip3 install opencv-python
